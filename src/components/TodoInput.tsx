@@ -7,7 +7,7 @@ interface TodoInputProps {
 }
 
 export function TodoInput({ addTask }: TodoInputProps) {
-  // const [task, setTask] = useState('');
+  const [task, setTask] = useState('');
 
   function handleAddNewTask() {
     //TODO - Call addTask if task not empty and clean input value 
@@ -15,7 +15,10 @@ export function TodoInput({ addTask }: TodoInputProps) {
 
   return (
     <View style={styles.inputContainer}>
-      <TextInput 
+      <TextInput
+        value={task}
+        onChangeText={setTask}
+        onSubmitEditing={handleAddNewTask()}
         style={styles.input} 
         placeholder="Adicionar novo todo..."
         placeholderTextColor="#B2B2B2"
