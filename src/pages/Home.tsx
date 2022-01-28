@@ -10,6 +10,7 @@ export function Home() {
 
   function handleAddTask(newTaskTitle: string) {
     //TODO - add new task
+
     let newTask = {
       id: new Date().getTime(),
       title: newTaskTitle,
@@ -17,7 +18,6 @@ export function Home() {
     }
 
     return setTasks([...tasks, newTask])
-    console.log(newTask)
   }
 
   function handleToggleTaskDone(id: number) {
@@ -26,6 +26,10 @@ export function Home() {
 
   function handleRemoveTask(id: number) {
     //TODO - remove task from state
+
+    let removeTasks = tasks.filter(item => item.id !== id)
+
+    return setTasks(removeTasks)
   }
 
   return (
