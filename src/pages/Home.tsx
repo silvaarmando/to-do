@@ -17,7 +17,7 @@ export function Home() {
       done: false,
     }
 
-    return setTasks([...tasks, newTask])
+    setTasks([...tasks, newTask])
   }
 
   function handleToggleTaskDone(id: number) {
@@ -27,9 +27,9 @@ export function Home() {
   function handleRemoveTask(id: number) {
     //TODO - remove task from state
 
-    let removeTasks = tasks.filter(item => item.id !== id)
+    const removeTasks = tasks.filter(item => item.id !== id)
 
-    return setTasks(removeTasks)
+    setTasks(removeTasks)
   }
 
   return (
