@@ -34,12 +34,13 @@ export function TasksList({ tasks, toggleTaskDone, removeTask }: TasksListProps)
                 activeOpacity={0.7}
                 style={styles.taskButton}
                 //TODO - use onPress (toggle task) prop
+                onPress={() => toggleTaskDone(item.id)}
               >
                 <View 
                   testID={`marker-${index}`}
                   //TODO - use style prop 
                 >
-                  { item.done && (
+                  { item.done == true && (
                     <Icon 
                       name="check"
                       size={12}
