@@ -38,7 +38,7 @@ export function TasksList({ tasks, toggleTaskDone, removeTask }: TasksListProps)
               >
                 <View 
                   testID={`marker-${index}`}
-                  //TODO - use style prop 
+                  style={item.done ? styles.taskMarkerDone : styles.taskMarker}
                 >
                   { item.done == true && (
                     <Icon 
@@ -50,7 +50,7 @@ export function TasksList({ tasks, toggleTaskDone, removeTask }: TasksListProps)
                 </View>
 
                 <Text 
-                  //TODO - use style prop
+                  style={item.done ? styles.taskTextDone : styles.taskText}
                 >
                   {item.title}
                 </Text>
