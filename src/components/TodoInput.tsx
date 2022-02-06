@@ -15,11 +15,12 @@ export function TodoInput({ addTask }: TodoInputProps) {
 
   function handleAddNewTask() {
     // TODO - Chama addTask se a tarefa não estiver vazia e limpar o valor de entrada
-    if (task != '') {
-      addTask(task)
+    if (!task)
+      return;
 
-      return setTask('')
-    }
+    addTask(task)
+    setTask('')
+
   }
 
   return (
