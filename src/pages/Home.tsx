@@ -1,22 +1,59 @@
-import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, {
+  useState
+} from 'react';
+import {
+  Alert,
+  StyleSheet,
+  View
+} from 'react-native';
 
-import { Header } from '../components/Header';
-import { Task, TasksList } from '../components/TasksList';
-import { TodoInput } from '../components/TodoInput';
+import {
+  Header
+} from '../components/Header';
+import {
+  Task,
+  TasksList
+} from '../components/TasksList';
+import {
+  TodoInput
+} from '../components/TodoInput';
 
 export function Home() {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [
+    tasks,
+    setTasks
+  ] = useState<Task[]>([]);
 
   function handleAddTask(newTaskTitle: string) {
+    const updatedTasks = tasks.map(
+      task => (
+        { ...task }
+      )
+    )
 
-    let newTask = {
-      id: new Date().getTime(),
-      title: newTaskTitle,
-      done: false,
-    }
+    const foundTask = updatedTasks.find(
+      item => 
+        item.title === newTaskTitle
+      )
 
-    setTasks([...tasks, newTask])
+    if (foundTask)
+      return Alert.alert(
+        'Task já cadastrada',
+        'Você não pode cadastrar uma task com o mesmo nome'
+      )
+
+      let newTask = {
+        id: new Date().getTime(),
+        title: newTaskTitle,
+        done: false,
+      }
+
+      setTasks(
+        [
+          ...tasks,
+          newTask
+        ]
+      )
   }
 
   function handleToggleTaskDone(id: number) {
