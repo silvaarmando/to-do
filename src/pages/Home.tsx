@@ -39,7 +39,13 @@ export function Home() {
     if (foundTask)
       return Alert.alert(
         'Task já cadastrada',
-        'Você não pode cadastrar uma task com o mesmo nome'
+        'Você não pode cadastrar uma task com o mesmo nome',
+        [
+          {
+            text: 'Sim',
+            style: 'destructive'
+          }
+        ]
       )
 
       let newTask = {
@@ -93,5 +99,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#EBEBEB'
+  },
+  alert: {
+    backgroundColor: '#FFFFFF',
+    color: '#000000'
   }
 })
